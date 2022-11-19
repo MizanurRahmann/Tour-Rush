@@ -1,0 +1,357 @@
+﻿.home-main-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-main-head h2 {
+    font-family: var(--font-oswald);
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.home-main-head-action {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-main-head-action form {
+    width: 55%;
+    margin-right: 10px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border);
+    background: #13141d;
+    border-radius: 5px;
+}
+
+.home-main-head-action form select {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: var(--color-white);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-inter);
+    font-weight: 200;
+}
+
+.home-main-head-action form select * {
+    font-weight: 200;
+    background: #13141d;
+}
+
+.home-main-head-action .add-button {
+    text-decoration: none;
+    height: 40px;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-inter);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.home-main-head-action .add-button span:first-child {
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-main-head-action {
+        width: fit-content;
+    }
+
+    .home-main-head-action form {
+        display: none;
+    }
+
+    .home-main-head-action .add-button {
+        padding: 10px;
+    }
+
+    .home-main-head-action .add-button span:last-child {
+        display: none;
+    }
+}
+
+/* =========================== TOUR LIST =========================== */
+.tours {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.tours .tour {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.tour .tour-image {
+    width: 100%;
+    height: 30vh;
+    border-radius: 8px 8px 0 0;
+}
+
+.tour .tour-image img {
+    width: 100%;
+    height: 30vh;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+}
+
+.tour .tour-body {
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+
+.tour .tour-body .tour-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tour .tour-body .tour-head .tour-head-info {
+    display: inline-block;
+    max-width: 80%;
+    text-decoration: none;
+    cursor: pointer;
+}
+.tour .tour-body .tour-head .tour-head-info:hover h3{
+    color: gray;
+}
+.tour .tour-body h3 {
+    font-family: var(--font-oswald);
+    font-size: 1.3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    color: var(--color-white);
+    transition: 0.4s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tour .tour-body h4 {
+    font-family: var(--font-oswald);
+    font-size: 12px;
+    font-weight: 200;
+    text-transform: uppercase;
+    line-height: 28px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tour .tour-body p {
+    font-size: 14px;
+    line-height: 22px;
+    color: gray;
+    margin-bottom: 1rem;
+}
+.tour .tour-body a.viewmore {
+    width: fit-content;
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+.tour .tour-body a.viewmore span svg{
+    margin-top: 5px;
+}
+.tour .tour-body a.viewmore span:last-child {
+    margin-left: 10px;
+    transition: all 0.4s;
+}
+.tour .tour-body a.viewmore:hover span:last-child {
+    margin-left: 16px;
+}
+.tour .tour-body .tour-head .tour-head-actions {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tour .tour-body .tour-head .tour-head-actions a {
+    width: 35px;
+    height: 35px;
+    background: var(--color-primary2);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.tour .tour-body .tour-head .tour-head-actions a:first-child:hover {
+    background: var(--color-secondary);
+    color: var(--color-primary)
+}
+
+.tour .tour-body .tour-head .tour-head-actions a:last-child:hover {
+    background: #F32727;
+}
+
+.tour .tour-body .tour-head .tour-head-actions a:first-child {
+    margin-right: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .tour .tour-body .tour-head {
+        flex-wrap: wrap;
+    }
+    .tour .tour-body .tour-head .tour-head-info {
+        width: 100%;
+    }
+    .tour .tour-body .tour-head .tour-head-actions {
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 10px
+    }
+}
+
+.tour-empty {
+    width: 100%;
+    height: 65vh;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tour-empty .tour-empty-container {
+    width: 100%;
+    text-align: center;
+}
+
+.tour-empty .tour-empty-container img {
+    width: 40%;
+    margin-bottom: -1.5rem;
+}
+
+.tour-empty .tour-empty-container h3 {
+    font-family: var(--font-oswald);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.tour-empty .tour-empty-container p {
+    font-size: 14px;
+    color: gray;
+}
+
+.deleteModal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleteModal .deleteModal-container {
+    width: 32%;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+}
+.deleteModal .deleteModal-container .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    background: #400505;
+    color: #F32727;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.deleteModal .deleteModal-container h4{
+    font-family: var(--font-oswald);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.deleteModal .deleteModal-container p {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    color: gray;
+}
+.deleteModal .deleteModal-container .button-container{
+    display: flex;
+    align-items: center;
+}
+.deleteModal .deleteModal-container button {
+    outline: none;
+    border: none;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-right: 10px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-white);
+}
+.deleteModal .deleteModal-container button:first-child {
+    background: #F32727;
+}
+.deleteModal .deleteModal-container button:last-child {
+    background: var(--color-primary2);
+}
+
+@media only screen and (max-width: 1400px) {
+    .deleteModal .deleteModal-container {
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .deleteModal .deleteModal-container {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .tour-empty {
+        border: none;
+    }
+    .tour-empty .tour-empty-container img {
+        width: 75%;
+    }
+    .deleteModal .deleteModal-container {
+        width: 65%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .deleteModal .deleteModal-container {
+        width: 80%;
+    }
+}

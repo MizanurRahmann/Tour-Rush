@@ -1,0 +1,158 @@
+﻿@model IEnumerable<TourViewModel>
+@{ ViewData["Title"] = "Dashboard"; }
+
+<div class="home-main-head">
+    <h2>Tour List</h2>
+    <div class="home-main-head-action">
+        <form 
+            asp-controller="Tour"
+            asp-action="Index"
+            method="get"
+            id="sort-form"
+        >
+            <select name="sort" id="" id="sort-form-value">
+                <option value="none">Sort by Rating: None</option>
+                <option value="asec">Sort by Rating: Low to High</option>
+                <option value="desc">Sort by Rating: High to Low</option>
+            </select>
+        </form>
+        <a class="add-button" asp-area="" asp-controller="Tour" asp-action="Add">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="16"
+                     height="16"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.5"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     class="feather feather-plus">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </span>
+            <span>Add Tour</span>
+        </a>
+    </div>
+</div>
+
+<div class="tours">
+    @if (Model != null && Model.Count() > 0)
+    {
+        @foreach (var tour in Model)
+        {
+            <div class="tour">
+                <div class="tour-image">
+                    <img src="@(string.Format("data:image/png;base64,{0}", tour.ImageUrl))"/>
+                </div>
+                <div class="tour-body">
+                    <div class="tour-head">
+                        <a 
+                            class="tour-head-info" 
+                            asp-controller="Tour" 
+                            asp-action="Details" 
+                            asp-route-id=@tour.Id
+                        >
+                            <h3>@tour.Name</h3>
+                            <h4>@tour.Address</h4>
+                        </a>
+                        <div class="tour-head-actions">
+                            <a asp-controller="Tour" asp-action="Edit" asp-route-id=@tour.Id>
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="14" height="14" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    stroke-width="2" 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    class="feather feather-edit-2"
+                                >
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                </svg>
+                            </a>
+                            <a class="tour-delete-button" id="tourdelete-@tour.Id">
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="14" height="14" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    stroke-width="2" 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round" 
+                                    class="feather feather-trash"
+                                    id="tourdelete-@tour.Id"
+                                >
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="home-tour-desc">@tour.Description</p>
+                    <a class="viewmore" asp-controller="Tour" asp-action="Details" asp-route-id=@tour.Id>
+                        <span>View More</span>
+                        <span>
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg" 
+                                width="14" 
+                                height="14" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                stroke-width="2" 
+                                stroke-linecap="round"
+                                stroke-linejoin="round" 
+                                class="feather feather-chevrons-right"
+                            >
+                                <polyline points="13 17 18 12 13 7"></polyline>
+                                <polyline points="6 17 11 12 6 7"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+    else {
+        <div class="tour-empty">
+            <div class="tour-empty-container">
+                <img src="~/img/search.png" />
+                <h3>TOUR NOT FOUND</h3>
+                <p>Sorry we can't find any tour in our database.'</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="deleteModal">
+    <div class="deleteModal-container">
+        <div class="logo">
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="25" 
+                height="25" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="1.5" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="feather feather-trash"
+            >
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+        </div>
+        <h4>Are you sure ?</h4>
+        <p>This action deletes this tour data. Other users can't see or modify this tour data after you delete it.</p>
+
+        <div class="button-container">
+            <button id="tour-delete-confirm-btn">Delete</button>
+            <button id="tour-delete-cancel-btn">Cancel</button>
+        </div>
+    </div>
+</div>

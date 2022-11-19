@@ -1,0 +1,98 @@
+﻿@model AccountViewModel
+@{ Layout = null; }
+@{ ViewData["Title"] = "Sign In"; }
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="~/css/signin.css" />
+  </head>
+  <body>
+    <div class="signin-container">
+      <nav>
+        <img src="~/img/logo.png" alt="" />
+        <h4>TOUR/RUSH</h4>
+      </nav>
+
+      <div class="form-block">
+        <form 
+            asp-controller="Account"
+            asp-action="Signin"
+            method="post"
+        >
+          <h2>Sign In</h2>
+          <p>Join with us today and explore the world.</p>
+          <div class="input-group">
+            <label asp-for=@Model.Username>Username*</label>
+            <input 
+                asp-for=@Model.Username 
+                type="text" 
+                id="AccountModel1" 
+                placeholder="Enter username" 
+            />
+          <span asp-validation-for="Username" class="error-message" id="error-username-signin"></span>
+          </div>
+          <div class="input-group">
+            <label asp-for=@Model.Password>Password*</label>
+            <input
+              asp-for=@Model.Password
+              type="password"
+              id="AccountModel2"
+              placeholder="Enter password"
+            />
+             <span asp-validation-for="Password" class="error-message" id="error-password-signin"></span>
+             @if(Model != null && Model.LoginErrorMessage != null)
+             {
+                <span class="error-message" id="error-password">@Model.LoginErrorMessage</span>                
+             }
+
+             <span class="show-off">
+                  <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16"
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      stroke-width="2" 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      class="feather feather-eye-off"
+                  >
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+             </span>
+            <span class="show-on">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="18" 
+                    height="18" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    class="feather feather-eye"
+                    >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </span>
+          </div>       
+
+          <button>Sign in</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+  </body>
+</html>

@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/addTour.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/details.css" asp-append-version="true" />
+
+    <title>@ViewData["Title"] - TOUR/RUSH</title>
+</head>
+<body>
+    <div class="mainContainer">
+        <!-- SIDE NAV LEFT -->
+        <div class="sidenav1">
+            <div class="brand">
+                <img src="~/img/logo.png" alt="" />
+                <h4>Tour/Rush</h4>
+            </div>
+            <div class="links">
+                <a 
+                    class="link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" 
+                    asp-area="" 
+                    asp-controller="Tour" 
+                    asp-action="Index"
+                >
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="18"
+                             height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             class="feather feather-grid">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <div class="text">Dashboard</div>
+                </a>
+                <a class="link @(ViewContext.RouteData.Values["Action"].ToString() == "Add" ? "active" : "")"
+                   asp-controller="Tour" 
+                   asp-action="Add"
+                >
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="18"
+                             height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             class="feather feather-plus">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div class="text">Add Tour</div>
+                </a>
+                <a asp-controller="Account" asp-action="Signout" class="link">
+                    <div class="logo">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="18" 
+                            height="18" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            stroke-width="1.5" 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            class="feather feather-log-out"
+                        >
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div class="text">Sign Out</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- MAIN BODY -->
+        <div class="body">
+            <!-- 1. search -->
+            <div class="body__search">
+                <form 
+                    asp-controller="Tour"
+                    asp-action="Index"
+                    method="get"
+                    id="search-form"
+                >
+                    <input type="text" name="search" placeholder="search by #name" id="search-form-field" />
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="20"
+                             height="20"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             class="feather feather-search">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                </form>
+                <div id="open-menu" class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="head__container">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- SIDE NAV RIGHT -->
+        <div class="sidenav2">
+            <div class="head">
+                <h4>Welcome to <span>TOUR/RUSH</span> 👋</h4>
+            </div>
+            <div class="blocks">
+                <div class="block">
+                    <h5>Connect with us</h5>
+                    <p>
+                        Click the button below, fillup the form, be our member and
+                        enjoy lots of adventures.
+                    </p>
+                    <a href="/">CONNECT</a>
+                </div>
+                <div class="block">
+                    <h5>Explore Our Latest Tours</h5>
+                    <p>
+                        Click the button below, fillup the form, be our member and
+                        enjoy lots of adventures.
+                    </p>
+                    <a href="/">EXPLORE</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU -->
+        <div class="global-menu">
+            <div class="global-menu-container">
+                <div class="head">
+                    <img src="./images/logo.png" alt="" />
+                    <span id="close-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="24"
+                             height="24"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="4"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             class="feather feather-x">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="crossorigin="anonymous"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

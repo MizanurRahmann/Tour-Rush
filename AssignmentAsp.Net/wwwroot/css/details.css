@@ -1,0 +1,95 @@
+﻿.tour-details-container {
+    width: 100%;
+}
+.tour-details-container .image-block {
+    width: 100%;
+    height: 40vh;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.tour-details-container .image-block .back-btn {
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 40px;
+    width: 40px;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tour-details-container .info-block-head {
+    display: flex;
+    justify-content: space-between;
+}
+.tour-details-container .info-block-head .info-info{
+    width: 85%;
+}
+.tour-details-container .info-block-head .info-info h2 {
+    font-family: var(--font-oswald);
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.tour-details-container .info-block-head .info-info h4 {
+    font-family: var(--font-oswald);
+    font-size: 12px;
+    font-weight: 200;
+    text-transform: uppercase;
+    line-height: 28px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+.tour-details-container .info-block-head .ratting {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+}
+.tour-details-container .info-block-head .ratting img {
+    height: 18px;
+}
+.tour-details-container .info-block-head .ratting span {
+    font-size: 18px;
+    font-weight: 400;
+}
+.tour-details-container p {
+    font-size: 14px;
+    line-height: 20px;
+    color: gray;
+}
+.tour-empty .tour-empty-container a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 800px) {
+    .tour-details-container .image-block {
+        height: 30vh;
+        border: 1px solid var(--color-border);
+    }
+    .tour-details-container .info-block-head {
+        flex-direction: column-reverse;
+    }
+    .tour-details-container .info-block-head .info-info {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .tour-details-container p {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+    }
+}

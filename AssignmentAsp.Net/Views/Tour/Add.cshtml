@@ -1,0 +1,105 @@
+﻿@model TourViewModel
+@{ ViewData["Title"] = "Add Tour"; }
+
+
+<div class="add-main-head">
+    <h2>Add Tour</h2>
+    <a class="button" asp-controller="Tour" asp-action="Index">
+        <svg xmlns="http://www.w3.org/2001/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="feather feather-chevron-left">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </a>
+</div>
+
+<!-- -------- -->
+<!-- ADD FORM -->
+<!-- -------- -->
+<form 
+    class="add-main-form" 
+    asp-controller="Tour" 
+    asp-action="Add" 
+    method="post" 
+    enctype="multipart/form-data"
+>
+    <!-- image fields -->
+    <p>Tour Image</p>
+    <div class="image-group-container">
+        <div class="image-group">
+            <label asp-for=@Model.Image>
+                <div>
+                    <img src="~/img/photo.png" alt="" />
+                    <h5>UPLOAD A TOUR IMAGE</h5>
+                </div>
+            </label>
+            <input asp-for=@Model.Image accept="image/*" id="TourModel0" />
+        </div>
+        <span asp-validation-for="ImageUrl" class="error-message" id="error-image"></span>
+        <span asp-validation-for="Image" class="error-message" id="error-image"></span>
+    </div>
+    <!-- image preview -->
+    <div class="image-group-container-preview">
+        <div class="layer" id="preview-cancel-layer">
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="24" height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="1" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="feather feather-x-circle"
+                >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+                <p>Cancel</p>
+        </div>
+    </div>
+    <div class="input-group">
+        <label asp-for=@Model.Name>Tour Name*</label>
+        <input asp-for=@Model.Name
+               type="text"
+               id="TourModel1"
+               placeholder="Enter tour name" />
+        <span asp-validation-for="Name" class="error-message" id="error-name"></span>
+    </div>
+    <div class="input-group">
+        <label asp-for=@Model.Address>Tour Adress*</label>
+        <input asp-for=@Model.Address
+               type="text"
+               id="TourModel2"
+               placeholder="Enter tour address"
+         />
+        <span asp-validation-for="Address" class="error-message" id="error-address"></span>
+    </div>
+    <div class="input-group">
+        <label asp-for=@Model.Rating>Tour Rating*</label>
+        <input asp-for=@Model.Rating
+               type="string"
+               id="TourModel3"
+               placeholder="Enter tour rating"
+         />
+        <span asp-validation-for="Rating" class="error-message" id="error-rating"></span>
+    </div>
+    <div class="input-group">
+        <label asp-for=@Model.Description>Tour Description*</label>
+        <textarea asp-for=@Model.Description
+                  id="TourModel4"
+                  placeholder="Enter tour description"
+                  rows="10">
+        </textarea>
+        <span asp-validation-for="Description" class="error-message" id="error-description"></span>
+    </div>
+    <button>Submit</button>
+</form>

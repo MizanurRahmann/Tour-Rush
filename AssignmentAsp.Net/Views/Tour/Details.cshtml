@@ -1,0 +1,59 @@
+﻿@model TourViewModel
+@{ ViewData["Title"] = "Details"; }
+
+<div class="tour-details-page">
+    @if(Model.Id != 0)
+    {
+        <div class="tour-details-container">
+            <div 
+                class="image-block"
+                style="background: url(@(string.Format("data:image/png;base64,{0}", Model.ImageUrl))) no-repeat center center / cover"
+            >
+                <a class="back-btn" asp-controller="Tour" asp-action="Index">
+                    <svg xmlns="http://www.w3.org/2001/svg"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         class="feather feather-chevron-left">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="info-block-head">
+                <div class="info-info">
+                    <h2>@Model.Name</h2>
+                    <h4>@Model.Address</h4>
+                </div>
+                <div class="ratting">
+                    <h4>
+                        <span>
+                            <img src="~/img/star.png" />
+                        </span>
+                        <span>
+                            @Model.Rating
+                        </span>
+                    </h4>
+                </div>
+            </div>
+
+            <p>@Model.Description</p>
+        </div>
+    }
+    else
+    {
+        <div class="tour-empty">
+            <div class="tour-empty-container">
+                <img src="~/img/search.png" />
+                <h3>TOUR NOT FOUND</h3>
+                <p>Sorry we can't find this tour.</p>
+                <a asp-controller="Tour" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    }
+</div>

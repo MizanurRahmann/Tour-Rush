@@ -1,0 +1,146 @@
+﻿.signin-container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-primary2);
+    overflow: hidden;
+}
+
+/* NAVIGATION */
+nav {
+    height: 60px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    height: 30px;
+    margin-right: 1.5rem;
+}
+
+nav h4 {
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* FOR BLOCK */
+.form-block {
+    height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-block h2 {
+    font-family: var(--font-oswald);
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.form-block p {
+    color: gray;
+    margin-bottom: 2rem;
+}
+
+.form-block form {
+    width: 40%;
+    height: 75vh;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.form-block label {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.form-block .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.form-block .input-group span.show-off,
+.form-block .input-group span.show-on {
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: var(--color-border);
+    cursor: pointer;
+}
+.form-block .input-group span.show-on {
+    display: none;
+}
+.form-block .input-group input,
+.form-block .input-group textarea {
+    font-size: 1rem;
+    padding: 15px 20px;
+    outline: none;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background: #13141d !important;
+    color: var(--color-white);
+    font-family: var(--font-inter);
+    font-weight: 300;
+}
+.form-block .input-group input:-webkit-autofill,
+.form-block .input-group input:-webkit-autofill:hover,
+.form-block .input-group input:-webkit-autofill:focus,
+.form-block .input-group input:-webkit-autofill:active {
+    background: #13141d;
+    -webkit-box-shadow: 0 0 0 1000px #13141d inset;
+    -webkit-text-fill-color: var(--color-white);
+}
+
+.form-block .input-group input:-internal-autofill-selected {
+    background: #13141d;
+}
+.form-block .error-message {
+    margin-top: 10px;
+    font-size: 12px;
+    color: red;
+}
+
+.form-block button {
+    padding: 15px 50px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .form-block form {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .form-block form {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .signin-container {
+        background-color: var(--color-primary);
+    }
+
+    .form-block form {
+        width: 100%;
+        height: 100%;
+    }
+}
