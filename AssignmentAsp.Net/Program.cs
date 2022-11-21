@@ -24,7 +24,8 @@ var app = builder.Build();
 // ADD MIDDLEWARES WITH THE APP
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Tour/Error");
+    app.UseExceptionHandler("/Error");
+    app.UseStatusCodePagesWithRedirects("/Error/{0}");
     app.UseHsts();
 }
 app.UseHttpsRedirection();
