@@ -8,6 +8,6 @@ namespace AssignmentAsp.Net.Services
         Task Edit(TourViewModel model);
         Task Delete(TourViewModel model);
         Task<TourViewModel> GetById(int id);
-        Task<List<TourViewModel>> GetAll(string search, string sort);
+        Task<List<TourViewModel>> GetAll(string search);
     }
 }

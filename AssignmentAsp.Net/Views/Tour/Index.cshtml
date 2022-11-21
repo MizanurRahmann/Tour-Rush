@@ -4,18 +4,6 @@
 <div class="home-main-head">
     <h2>Tour List</h2>
     <div class="home-main-head-action">
-        <form 
-            asp-controller="Tour"
-            asp-action="Index"
-            method="get"
-            id="sort-form"
-        >
-            <select name="sort" id="" id="sort-form-value">
-                <option value="none">Sort by Rating: None</option>
-                <option value="asec">Sort by Rating: Low to High</option>
-                <option value="desc">Sort by Rating: High to Low</option>
-            </select>
-        </form>
         <a class="add-button" asp-area="" asp-controller="Tour" asp-action="Add">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg"

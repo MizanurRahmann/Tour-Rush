@@ -31,7 +31,7 @@ namespace AssignmentAsp.Net.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<TourViewModel>> GetAll(string searchStr = "", string sortType = "")
+        public async Task<List<TourViewModel>> GetAll(string searchStr = "")
         {
             var data = await _db.Tours.ToListAsync();
             if(searchStr != null)

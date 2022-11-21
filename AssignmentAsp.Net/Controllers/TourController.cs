@@ -19,29 +19,15 @@ namespace AssignmentAsp.Net.Controllers
         }
 
         // GET TOUR
-        /*
-        public async Task<IActionResult> Index()
-        {
-            bool userAuthenticated = false;
-            if (_sc.HttpContext.Session.GetString("UserId") != null) { userAuthenticated = true; }
-
-            if (userAuthenticated)
-            {
-                var data = await _services.GetAll();
-                return View(data);
-                
-            }
-            return RedirectToAction("Signin", "Account");
-        }*/
         [HttpGet]
-        public async Task<IActionResult> Index([FromQuery(Name = "search")] string search, [FromQuery(Name = "sort")] string sort)
+        public async Task<IActionResult> Index([FromQuery(Name = "search")] string search)
         {
             bool userAuthenticated = false;
             if (_sc.HttpContext.Session.GetString("UserId") != null) { userAuthenticated = true; }
 
             if (userAuthenticated)
             {
-                var data = await _services.GetAll(search, sort);
+                var data = await _services.GetAll(search);
                 return View(data);
 
             }
